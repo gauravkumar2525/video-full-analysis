@@ -1,0 +1,184 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Scene Detection PDF</title>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            font-family: 'Arial', sans-serif;
+            background-color: #000000;
+            background-image: url('https://c0.wallpaperflare.com/preview/81/87/653/man-working-camera-photography.jpg');
+            background-size: cover;
+            background-position: center center;
+            background-attachment: fixed;
+            color: #E1E2E2;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            min-height: 100vh;
+            padding: 20px;
+        }
+
+        .container {
+            display: flex;
+            justify-content: space-between;
+            max-width: 1200px;
+            width: 100%;
+            gap: 20px;
+            background-color: rgba(0, 0, 0, 0.5);
+            padding: 30px;
+            border-radius: 15px;
+        }
+
+        .left-section {
+            flex: 1;
+            max-width: 50%;
+        }
+
+        .right-section {
+            flex: 1;
+            max-width: 50%;
+        }
+
+        .logo-container {
+            text-align: center;
+            margin-bottom: 20px;
+        }
+
+        .logo {
+            max-width: 260px;
+            height: auto;
+            border-radius: 10px;
+        }
+
+        .search-heading {
+            font-size: 3.2em;
+            color: #E50914;
+            margin-bottom: 10px;
+            text-align: center;
+            text-transform: uppercase;
+            font-weight: bold;
+        }
+
+        h2 {
+            font-size: 2.2em;
+            margin-bottom: 30px;
+            color: #E50914;
+            text-decoration: underline;
+            text-transform: uppercase;
+            text-align: center;
+        }
+
+        .input-group {
+            margin-bottom: 20px;
+            width: 100%;
+            display: flex;
+            flex-direction: column;
+        }
+
+        .input-group label {
+            font-size: 1.2em;
+            margin-bottom: 10px;
+            color: #E1E2E2;
+        }
+
+        .input-group input {
+            padding: 12px;
+            border-radius: 8px;
+            border: 1px solid #303030;
+            font-size: 1.1em;
+            background-color: #303030;
+            color: #E1E2E2;
+            transition: background-color 0.3s ease;
+        }
+
+        .input-group input:focus {
+            outline: none;
+            border-color: #E50914;
+            background-color: #404040;
+        }
+
+        button {
+            background-color: #E50914;
+            width: 100%;
+            color: white;
+            font-weight: bold;
+            padding: 12px;
+            border: none;
+            border-radius: 8px;
+            cursor: pointer;
+            font-size: 1.2em;
+            transition: background-color 0.3s ease;
+        }
+
+        button:hover {
+            background-color: #B20710;
+        }
+
+        .project-info {
+            text-align: left;
+            color: #E1E2E2;
+            font-size: 1.1em;
+            line-height: 1.6;
+        }
+
+        .project-highlight {
+            color: #E50914;
+            font-weight: bold;
+        }
+
+        @media (max-width: 768px) {
+            .container {
+                flex-direction: column;
+            }
+
+            .left-section,
+            .right-section {
+                max-width: 100%;
+            }
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+
+        <!-- Left section -->
+        <div class="left-section">
+            <div class="logo-container">
+                <img src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcTnQWKj_r-sabIzLPeGPwaRydNvmDUfaRr6Ug&s" alt="App Logo" class="logo">
+            </div>
+            <div class="project-info">
+                <p>Welcome to the <span class="project-highlight">Search in Video Engine</span> — <span class="project-highlight">Video To PDF Converter</span>. This tool intelligently extracts frames from your video based on <span class="project-highlight">significant scene changes</span> and compiles them into a <span class="project-highlight">PDF document</span>.</p>
+
+                <p>Ideal for summarizing <span class="project-highlight">movies, lectures, interviews</span>, or any content-rich video, this app helps you <span class="project-highlight">visualize transitions</span> without scrubbing through the entire footage manually.</p>
+
+                <p>Simply upload your video and let our engine handle the rest — fast, reliable, and optimized for clarity and uniqueness in every frame.</p>
+            </div>
+        </div>
+
+        <!-- Right section -->
+        <div class="right-section">
+            <form method="POST" enctype="multipart/form-data">
+                <div class="search-heading">Search in Video Engine</div>
+                <h2>Video To PDF<br/>Converter</h2>
+
+                <div class="input-group">
+                    <label for="video">Upload a Video File:</label>
+                    <input type="file" id="video" name="video" accept="video/*" required>
+                </div>
+
+                <button type="submit">Generate PDF</button>
+            </form>
+        </div>
+
+    </div>
+</body>
+</html>
+

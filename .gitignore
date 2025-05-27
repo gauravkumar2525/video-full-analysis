@@ -1,0 +1,6 @@
+__pycache__/
+*.pt
+uploads/
+output_frames/
+*.pyc
+.env

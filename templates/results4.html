@@ -1,0 +1,159 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>Transcription Results</title>
+  <style>
+    body {
+      font-family: Arial, sans-serif;
+      margin: 0;
+      background-color: #000;
+      color: #E1E2E2;
+      background-image: url('https://c0.wallpaperflare.com/preview/81/87/653/man-working-camera-photography.jpg');
+      background-size: cover;
+      background-position: center;
+      background-attachment: fixed;
+      padding: 40px 20px;
+    }
+
+    .container {
+      max-width: 1200px;
+      margin: auto;
+      background-color: rgba(0, 0, 0, 0.75);
+      padding: 30px;
+      border-radius: 15px;
+      box-shadow: 0 0 20px rgba(0,0,0,0.5);
+    }
+
+    h1 {
+      font-size: 3em;
+      color: #E50914;
+      font-weight: bold;
+      margin-bottom: 30px;
+      text-align: center;
+      text-transform: uppercase;
+      text-decoration: underline;
+      text-underline-offset: 6px;
+    }
+
+    h2 {
+      font-size: 2em;
+      color: #E50914;
+      margin-top: 40px;
+      margin-bottom: 15px;
+    }
+
+    table {
+      width: 100%;
+      border-collapse: collapse;
+      margin: 20px 0;
+    }
+
+    table, th, td {
+      border: 1px solid #555;
+    }
+
+    th, td {
+      padding: 12px;
+      text-align: left;
+    }
+
+    th {
+      background-color: #E50914;
+      color: #fff;
+    }
+
+    td {
+      background-color: #404040;
+    }
+
+    tr:nth-child(even) td {
+      background-color: #505050;
+    }
+
+    .highlight {
+      color: #ffffff;
+      font-weight: bold;
+    }
+
+    .back-link {
+        display: inline-block;
+        margin-top: 30px;
+        padding: 12px 24px;
+        background-color: #E50914;
+        color: white;
+        text-decoration: none;
+        font-weight: bold;
+        border-radius: 8px;
+        transition: background-color 0.3s ease;
+      }
+  
+      .back-link:hover {
+        background-color: #B20710;
+      }
+  
+
+    @media (max-width: 768px) {
+      h1 {
+        font-size: 2em;
+      }
+
+      h2 {
+        font-size: 1.4em;
+      }
+
+      th, td {
+        font-size: 0.9em;
+        padding: 8px;
+      }
+    }
+  </style>
+</head>
+<body>
+  <div class="container">
+    <h1>TRANSCRIPTION AND SEARCH RESULTS</h1>
+
+    <h2>TRANSCRIPTIONS:</h2>
+    <table>
+      <thead>
+        <tr>
+          <th>Chunk</th>
+          <th>Transcription</th>
+        </tr>
+      </thead>
+      <tbody>
+        {% for chunk in transcriptions %}
+        <tr>
+          <td>{{ chunk.chunk }}</td>
+          <td>{{ chunk.transcription }}</td>
+        </tr>
+        {% endfor %}
+      </tbody>
+    </table>
+
+    <h2>SEARCH RESULTS:</h2>
+    {% if timestamps %}
+    <table>
+      <thead>
+        <tr>
+          <th>Search Word</th>
+          <th>Timestamps</th>
+        </tr>
+      </thead>
+      <tbody>
+        {% for word, times in timestamps.items() %}
+        <tr>
+          <td class="highlight">{{ word }}</td>
+          <td>{{ times | join(", ") }}</td>
+        </tr>
+        {% endfor %}
+      </tbody>
+    </table>
+    {% else %}
+    <p><strong style="color: #E50914;">No matches</strong> found for the given search words.</p>
+    {% endif %}
+    <a href="/search_in_video" class="back-link">Go Back</a>
+  </div>
+</body>
+</html>

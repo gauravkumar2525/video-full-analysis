@@ -1,0 +1,234 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Video Search App</title>
+    <style>
+
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            font-family: 'Arial', sans-serif;
+            background-color: #000000;
+            background-image: url('https://c0.wallpaperflare.com/preview/81/87/653/man-working-camera-photography.jpg');
+            background-size: cover;
+            background-position: center center;
+            background-attachment: fixed;
+            color: #E1E2E2;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            min-height: 100vh;
+            padding: 20px;
+            overflow-y: auto;
+        }
+
+        .container {
+            display: flex;
+            justify-content: space-between;
+            align-items: flex-start;
+            max-width: 1200px;
+            width: 100%;
+            gap: 20px;
+            background-color: rgba(0, 0, 0, 0.5);
+            padding: 30px;
+            border-radius: 15px;
+        }
+
+        .left-section {
+            flex: 1;
+            max-width: 50%;
+        }
+
+        .right-section {
+            flex: 1;
+            max-width: 50%;
+        }
+
+        .logo-container {
+            text-align: center;
+            margin-bottom: 20px;
+        }
+
+        .logo {
+            max-width: 260px;
+            height: auto;
+            border-radius: 10px;
+        }
+
+        .search-heading {
+            font-size: 3em;
+            color: #E50914;
+            margin-bottom: 20px;
+            text-align: center;
+            text-transform: uppercase;
+            font-weight: bold;
+        }
+
+        h2 {
+            font-size: 2em;
+            margin-bottom: 20px;
+            color: #E50914;
+            text-decoration: underline;
+            text-transform: uppercase;
+            text-align: center;
+        }
+
+        .input-group {
+            margin-bottom: 20px;
+            width: 100%;
+            display: flex;
+            flex-direction: column;
+        }
+
+        .input-group label {
+            font-size: 1.2em;
+            margin-bottom: 10px;
+            color: #E1E2E2;
+        }
+
+        .input-group input,
+        .input-group select {
+            width: 100%;
+            padding: 12px;
+            border-radius: 8px;
+            border: 1px solid #303030;
+            font-size: 1.1em;
+            background-color: #303030;
+            color: #E1E2E2;
+            transition: background-color 0.3s ease;
+        }
+
+        .input-group input:focus,
+        .input-group select:focus {
+            outline: none;
+            border-color: #E50914;
+            background-color: #404040;
+        }
+
+        .input-group input[type="checkbox"] {
+            width: auto;
+        }
+
+        button {
+            background-color: #E50914;
+            width: 100%;
+            color: white;
+            font-weight: bold;
+            padding: 12px;
+            border: none;
+            border-radius: 8px;
+            cursor: pointer;
+            font-size: 1.2em;
+            transition: background-color 0.3s ease;
+        }
+
+        button:hover {
+            background-color: #B20710;
+        }
+
+        @media (max-width: 768px) {
+            .container {
+                flex-direction: column;
+            }
+
+            h1 {
+                font-size: 1.5em;
+            }
+
+            .search-heading {
+                font-size: 2em;
+                margin-bottom: 20px;
+            }
+
+            .left-section,
+            .right-section {
+                max-width: 100%;
+            }
+        }
+
+        .project-info {
+            text-align: left;
+            color: #E1E2E2;
+            font-size: 1.1em;
+            line-height: 1.6;
+        }
+
+        .project-highlight {
+            color: #E50914;
+            font-weight: bold;
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+
+        <!-- Left section (formerly right) -->
+        <div class="left-section">
+            <div class="logo-container">
+                <img src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcTnQWKj_r-sabIzLPeGPwaRydNvmDUfaRr6Ug&s" alt="App Logo" class="logo">
+            </div>
+            <div class="project-info">
+                <p>Welcome to the <span class="project-highlight">Search in Video Engine</span> — <span class="project-highlight">Speech Based Search</span>. Our application allows you to effortlessly search for any <span class="project-highlight">spoken word</span> or even entire <span class="project-highlight">sentences</span> in a video. 
+                Supporting both <span class="project-highlight">English</span> and <span class="project-highlight">Hindi</span>, this tool is ideal for indexing, analyzing, and retrieving information from video content.</p>
+
+                <p>Whether you need to locate key moments in lectures, search for dialogues in movies, or analyze interviews, our engine provides 
+                <span class="project-highlight">accurate and efficient</span> results. With optional <span class="project-highlight">fuzzy matching</span>, it ensures you find what you need even with slight variations in pronunciation or transcription.</p>
+
+                <p>Experience the power of <span class="project-highlight">advanced search capabilities</span> combined with a user-friendly interface. Save time and enhance productivity with our innovative solution!</p>
+            </div>
+        </div>
+
+        <!-- Right section (formerly left) -->
+        <div class="right-section">
+            <form action="search_in_video/process" method="post" enctype="multipart/form-data">
+                <div class="search-heading">
+                    Search in Video Engine
+                </div>
+
+                <!-- Subheading -->
+                <h2>Speech Based Search</h2>
+
+                <div class="input-group">
+                    <label for="video">Upload Video:</label>
+                    <input type="file" id="video" name="video" accept="video/*" required>
+                </div>
+
+                <div class="input-group">
+                    <label for="language">Select Language:</label>
+                    <select id="language" name="language" required>
+                        <option value="en">English</option>
+                        <option value="hi">Hindi</option>
+                    </select>
+                </div>
+
+                <div class="input-group">
+                    <label for="search_string">Search Words:</label>
+                    <input type="text" id="search_string" name="search_string" placeholder="Enter words to search" required>
+                </div>
+
+                <div class="input-group">
+                    <label for="fuzzy_match">Enable Fuzzy Matching:</label>
+                    <select id="fuzzy_match" name="fuzzy_match" required>
+                        <option value="yes">Yes</option>
+                        <option value="no">No</option>
+                    </select>
+                </div>
+
+                <div class="input-group">
+                    <label for="cutoff">Fuzzy Match Cutoff (0-1):</label>
+                    <input type="number" id="cutoff" name="cutoff" step="0.1" min="0" max="1" value="0.8">
+                </div>
+
+                <button type="submit">Submit</button>
+            </form>
+        </div>
+
+    </div>
+</body>
+</html>

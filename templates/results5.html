@@ -1,0 +1,89 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Download PDF</title>
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@500&display=swap" rel="stylesheet">
+  <style>
+    * {
+      box-sizing: border-box;
+    }
+
+    body {
+      font-family: 'Inter', sans-serif;
+      margin: 0;
+      background-color: #000;
+      background-image: url('https://c0.wallpaperflare.com/preview/81/87/653/man-working-camera-photography.jpg');
+      background-size: cover;
+      background-position: center;
+      background-attachment: fixed;
+      color: #E1E2E2;
+      min-height: 100vh;
+      padding: 40px 20px;
+    }
+
+    .container {
+      background-color: rgba(0, 0, 0, 0.75);
+      border-radius: 15px;
+      padding: 40px;
+      max-width: 1200px;
+      margin: auto;
+    }
+
+    h1 {
+      font-size: 3.2em;
+      font-weight: 900;
+      color: #E50914;
+      margin: 10;
+      text-transform: uppercase;
+      text-decoration: underline;
+      text-underline-offset: 8px;
+      text-align: center;
+    }
+
+    .btn-download {
+      display: block;
+      width: 90%;
+      margin: 40px auto 0 auto;
+      padding: 12px 24px;
+      background-color: #E50914;
+      color: white;
+      text-decoration: none;
+      font-weight: bold;
+      border-radius: 8px;
+      text-align: center;
+      border: 1px solid white;
+    }
+
+    .btn-back {
+      display: inline-block;
+      margin-top: 30px;
+      padding: 12px 24px;
+      background-color: #404040;
+      color: white;
+      text-decoration: none;
+      font-weight: bold;
+      border-radius: 8px;
+      text-align: center;
+    }
+
+    @media (max-width: 768px) {
+      h1 {
+        font-size: 2em;
+      }
+    }
+  </style>
+</head>
+<body>
+  <div class="container">
+    <h1>PDF Generated Successfully !</h1>
+
+    <a href="{{ url_for('download', file=file) }}" class="btn-download" download>
+      Download PDF
+    </a>
+    <br/>
+    <a href="/video_to_pdf" class="btn-back">Go Back</a>
+  </div>
+</body>
+</html>

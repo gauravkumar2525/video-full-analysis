@@ -1,0 +1,147 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Face Match Results</title>
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@500&display=swap" rel="stylesheet">
+  <style>
+    * {
+      box-sizing: border-box;
+    }
+
+    body {
+      font-family: 'Inter', sans-serif;
+      margin: 0;
+      background-color: #000;
+      background-image: url('https://c0.wallpaperflare.com/preview/81/87/653/man-working-camera-photography.jpg');
+      background-size: cover;
+      background-position: center;
+      background-attachment: fixed;
+      color: #E1E2E2;
+      min-height: 100vh;
+      padding: 40px 20px;
+    }
+
+    .container {
+      background-color: rgba(0, 0, 0, 0.75);
+      border-radius: 15px;
+      padding: 40px;
+      max-width: 1200px;
+      margin: auto;
+    }
+
+    h1 {
+      font-size: 3.2em;
+      font-weight: 900;
+      color: #E50914;
+      margin: 10;
+      text-transform: uppercase;
+      text-decoration: underline;
+      text-underline-offset: 8px;
+      text-align:center;
+    }
+
+    h2 {
+      font-size: 2em;
+      font-weight: 600;
+      color: #E50914;
+      margin-top: 45px;
+      margin-bottom: 10px;
+      text-transform: uppercase;
+    }
+
+    table {
+      width: 100%;
+      border-collapse: collapse;
+      margin-top: 10px;
+    }
+
+    th, td {
+      border: 1px solid #444;
+      padding: 12px;
+      text-align: center;
+    }
+
+    th {
+      background-color: #E50914;
+      color: #fff;
+      font-weight: 600;
+    }
+
+    td {
+      background-color: #404040;
+    }
+
+    img {
+      border-radius: 8px;
+    }
+
+    .back-link {
+      display: inline-block;
+      margin-top: 30px;
+      padding: 12px 24px;
+      background-color: #E50914;
+      color: white;
+      text-decoration: none;
+      font-weight: bold;
+      border-radius: 8px;
+      transition: background-color 0.3s ease;
+    }
+
+    .back-link:hover {
+      background-color: #B20710;
+    }
+
+    @media (max-width: 768px) {
+      h1 {
+        font-size: 2em;
+      }
+
+      h2 {
+        font-size: 1.5em;
+      }
+
+      table, th, td {
+        font-size: 0.9em;
+      }
+
+      img {
+        width: 100px;
+      }
+      
+    }
+  </style>
+</head>
+<body>
+  <div class="container">
+    <h1>Person / Face Detection Results</h1>
+    <h2>Frames and Timestamps:</h2>
+
+    <table>
+      <tr>
+        <th>Video</th>
+        <th>Timestamp</th>
+        <th>Matched Frame</th>
+      </tr>
+      {% if match_results%}
+      {% for result in match_results %}
+        <tr>
+          <td>{{ result.video }}</td>
+          <td>{{ result.timestamp }}</td>
+          <td><img src="data:image/jpeg;base64,{{ result.image }}" width="200"/></td>
+        </tr>
+      {% endfor %}
+      {% else %}
+      <tr>
+        <td colspan="3" style="padding: 20px; background-color: #222; color: #bbb; text-align: center; font-size: 1.2em;">
+          The person / face you searched for is <strong style="color: #E50914;">not found</strong> in the video(s).
+        </td>
+      </tr>
+    {% endif %}
+    </table>
+
+    <a href="/person_matching" class="back-link">Go Back</a>
+  </div>
+</body>
+</html>

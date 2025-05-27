@@ -1,0 +1,192 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <title>Search in Video Engine</title>
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@500&display=swap" rel="stylesheet">
+  <style>
+    * {
+      box-sizing: border-box;
+    }
+
+    body {
+      font-family: 'Inter', sans-serif;
+      margin: 0;
+      background-color: #000;
+      background-image: url('https://c0.wallpaperflare.com/preview/81/87/653/man-working-camera-photography.jpg');
+      background-size: cover;
+      background-position: center;
+      background-attachment: fixed;
+      color: #E1E2E2;
+      min-height: 100vh;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      padding: 60px 20px;
+    }
+
+    .container {
+      background-color: rgba(0, 0, 0, 0.7);
+      border-radius: 15px;
+      padding: 40px;
+      width: 100%;
+      max-width: 1000px;
+      text-align: center;
+    }
+
+    .header {
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      gap: 20px;
+      flex-wrap: wrap;
+      margin-bottom: 40px;
+      text-align: left;
+    }
+
+    .logo-container {
+      flex-shrink: 0;
+    }
+
+    .logo {
+      max-width: 220px;
+      height: auto;
+      border-radius: 10px;
+    }
+
+    h1 {
+      font-size: 3.2em;
+      font-weight: 900;
+      text-transform: uppercase;
+      color: #E50914;
+      text-decoration: underline;
+      text-underline-offset: 8px;
+      margin: 0;
+      flex: 1;
+    }
+
+    .button-container {
+      display: flex;
+      flex-direction: column;
+      gap: 30px;
+      width: 100%;
+    }
+
+    .btn-block {
+      text-align: left;
+    }
+
+    .description {
+      margin-bottom: 10px;
+      font-size: 1.1em;
+      color: #dddddd;
+    }
+
+    .description strong {
+      color: #E50914;
+    }
+
+    .btn {
+      display: block;
+      width: 50%;
+      padding: 16px;
+      font-size: 1.1em;
+      border: none;
+      border-radius: 8px;
+      background-color: #E50914;
+      color: white;
+      font-weight: bold;
+      cursor: pointer;
+      transition: background-color 0.3s ease;
+      text-decoration: none;
+      text-align: center;
+    }
+
+    .btn:hover {
+      background-color: #B20710;
+    }
+
+    .footer {
+      margin-top: 50px;
+      font-size: 0.95em;
+      color: #bbb;
+      border-top: 1px solid #444;
+      padding-top: 20px;
+    }
+
+    @media (max-width: 768px) {
+      .header {
+        flex-direction: column;
+        align-items: center;
+        text-align: center;
+      }
+
+      h1 {
+        font-size: 2em;
+        text-align: center;
+      }
+
+      .logo {
+        max-width: 180px;
+      }
+
+      .btn {
+        width: 100%;
+      }
+    }
+  </style>
+</head>
+<body>
+  <div class="container">
+    <div class="header">
+      <div class="logo-container">
+        <img src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcTnQWKj_r-sabIzLPeGPwaRydNvmDUfaRr6Ug&s" alt="App Logo" class="logo" />
+      </div>
+      <h1>Search in Video Engine</h1>
+    </div>
+
+  <div class="button-container">
+    <div class="btn-block">
+      <div class="description">
+        <strong>Speech Based Search:</strong> Search anything that is spoken in the video. Works with both English and Hindi languages. Search any word/sentence in the video and it can tell whether that word/sentence is spoken in the video or not. If found, it returns the timestamp where it was spoken. It also shows the full transcription of the video.
+      </div>
+      <a href="/search_in_video" class="btn">Speech Based Search</a>
+    </div>
+  
+    <div class="btn-block">
+      <div class="description">
+        <strong>Object Detection:</strong> Search any object that appears in the video like trees, bicycles, mobiles, or anything else. It finds and detects objects within the video and, if found, returns the exact timestamp along with the frame where the object is located.
+      </div>
+      <a href="/object_detection" class="btn">Object Detection</a>
+    </div>
+  
+    <div class="btn-block">
+      <div class="description">
+        <strong>Person / Face Detection:</strong> Search for a specific person in one or many videos. All you need is to upload an image of the person, and the model can identify whether the person appears in the video or not. If found, it returns the video name, exact timestamp, and the frame where the person is detected.
+      </div>
+      <a href="/person_matching" class="btn">Person / Face Detection</a>
+    </div>
+  
+    <div class="btn-block">
+      <div class="description">
+        <strong>Image Based Search:</strong> Search for any image (screenshot) in a video. You have to upload an image, and the model can determine whether this image appears in the video or not. If found, it returns the exact timestamp and frame.
+      </div>
+      <a href="/screenshot_matching" class="btn">Image Based Search</a>
+    </div>
+  
+    <div class="btn-block">
+      <div class="description">
+        <strong>Video To PDF Converter:</strong> Convert any video into a PDF. This tool extracts frames from a video based on significant scene changes and compiles them into a PDF document. All you need to do is just upload a video and click on the Generate PDF button.
+      </div>
+      <a href="/video_to_pdf" class="btn">Video To PDF Converter</a>
+    </div>
+  </div>  
+
+    <div class="footer">
+      <p><strong>Developed by:</strong> Gaurav Kumar</p>
+      <p><strong>Contact:</strong> 8619291091</p>
+      <p><strong>Email:</strong> gauravkumar10425@gmail.com</p>
+    </div>
+  </div>
+</body>
+</html>

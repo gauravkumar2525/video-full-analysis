@@ -1,0 +1,149 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Detected Objects</title>
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@500&display=swap" rel="stylesheet">
+  <style>
+    * {
+      box-sizing: border-box;
+    }
+
+    body {
+      font-family: 'Inter', sans-serif;
+      margin: 0;
+      background-color: #000;
+      background-image: url('https://c0.wallpaperflare.com/preview/81/87/653/man-working-camera-photography.jpg');
+      background-size: cover;
+      background-position: center;
+      background-attachment: fixed;
+      color: #E1E2E2;
+      min-height: 100vh;
+      padding: 40px 20px;
+    }
+
+    .container {
+      background-color: rgba(0, 0, 0, 0.75);
+      border-radius: 15px;
+      padding: 40px;
+      max-width: 1200px;
+      margin: auto;
+    }
+
+    .header {
+      margin-bottom: 20px;
+    }
+
+    h1 {
+      font-size: 3.2em;
+      font-weight: 900;
+      color: #E50914;
+      margin: 10;
+      text-transform: uppercase;
+      text-decoration: underline;
+      text-underline-offset: 8px;
+    }
+
+    h2 {
+      font-size: 2em;
+      font-weight: 600;
+      color: #E50914;
+      margin-top: 45px;
+      margin-bottom: 10px;
+      text-transform: uppercase;
+    }
+
+    table {
+      width: 100%;
+      border-collapse: collapse;
+      margin-top: 10px;
+    }
+
+    th, td {
+      border: 1px solid #444;
+      padding: 12px;
+      text-align: center;
+    }
+
+    th {
+      background-color: #E50914;
+      color: #fff;
+      font-weight: 600;
+    }
+
+    td {
+      background-color: #404040;
+    }
+
+    img {
+      border-radius: 8px;
+    }
+
+    .back-link {
+      display: inline-block;
+      margin-top: 30px;
+      padding: 12px 24px;
+      background-color: #E50914;
+      color: white;
+      text-decoration: none;
+      font-weight: bold;
+      border-radius: 8px;
+      transition: background-color 0.3s ease;
+    }
+
+    .back-link:hover {
+      background-color: #B20710;
+    }
+
+    @media (max-width: 768px) {
+      h1 {
+        font-size: 2em;
+      }
+
+      h2 {
+        font-size: 1.5em;
+      }
+
+      table, th, td {
+        font-size: 0.9em;
+      }
+
+      img {
+        width: 100px;
+      }
+    }
+  </style>
+</head>
+<body>
+  <div class="container">
+    <div class="header">
+      <h1>Object Detection Results</h1>
+    </div>
+
+    <h2>Frames and Timestamps:</h2>
+
+    <table>
+      <tr>
+        <th>Frame No.</th>
+        <th>Timestamp</th>
+        <th>Searched For</th>
+        <th>Frame Found</th>
+      </tr>
+
+    {% for frame in frames %}
+      <tr>
+        <td>{{ frame.frame }}</td>
+        <td>{{ frame.timestamp }}</td>
+        <td>{{ frame.label }}</td>
+        <td><img src="{{ url_for('serve_file', filename=frame.frame_file) }}" width="200" /></td>
+      </tr>
+    {% endfor %}
+
+    </table>
+    
+
+    <a href="/object_detection" class="back-link">Go Back</a>
+  </div>
+</body>
+</html>

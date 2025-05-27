@@ -1,0 +1,126 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>Screenshot Match Result</title>
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@500&display=swap" rel="stylesheet">
+  <style>
+    body {
+      font-family: 'Inter', sans-serif;
+      background-color: #000;
+      background-image: url('https://c0.wallpaperflare.com/preview/81/87/653/man-working-camera-photography.jpg');
+      background-size: cover;
+      background-position: center;
+      background-attachment: fixed;
+      margin: 0;
+      padding: 40px;
+      color: #fff;
+    }
+
+    .container {
+      background-color: rgba(0, 0, 0, 0.75);
+      padding: 40px;
+      border-radius: 20px;
+      max-width: 900px;
+      margin: 0 auto;
+      box-shadow: 0 0 30px rgba(0,0,0,0.8);
+    }
+
+    h1 {
+      color: #E50914;
+      font-size: 3.2em;
+      text-transform: uppercase;
+      text-decoration: underline;
+      text-align: center;
+      margin-bottom: 40px;
+    }
+
+    h2 {
+      font-size: 2em;
+      color: #E50914;
+      text-transform: uppercase;
+      text-align: left;
+      margin-top: 40px;
+    }
+
+    .error {
+      font-size: 1.2em;
+      color: #ff4c4c;
+      text-align: center;
+    }
+
+    img {
+      display: block;
+      margin: 20px auto;
+      max-width: 100%;
+      border: 4px solid black;
+    }
+
+    table {
+      width: 100%;
+      border-collapse: collapse;
+      margin-top: 20px;
+      border: 2px solid #808080; /* grey border */
+    }
+
+    td {
+      padding: 18px;
+      font-size: 1.1em;
+      font-weight: bold;
+      text-align: center;
+      border: 1px solid #444;
+    }
+
+    .left-cell {
+      background-color: #E50914;
+      color: white;
+    }
+
+    .right-cell {
+      background-color: #404040;
+      color: white;
+    }
+
+    .back-link {
+        display: inline-block;
+        margin-top: 30px;
+        padding: 12px 24px;
+        background-color: #E50914;
+        color: white;
+        text-decoration: none;
+        font-weight: bold;
+        border-radius: 8px;
+        transition: background-color 0.3s ease;
+    }
+  
+    .back-link:hover {
+        background-color: #B20710;
+    }
+
+  </style>
+</head>
+<body>
+  <div class="container">
+    <h1>Screenshot Match Result</h1>
+
+    {% if match_found %}
+      <h2>Frame Matched:</h2>
+      <img src="{{ url_for('static', filename=match_img) }}" alt="Matched Frame">
+
+      <h2>Searched Result:</h2>
+      <table>
+        <tr>
+          <td class="left-cell">Matched Found</td>
+          <td class="right-cell">{{ timestamp }}</td>
+        </tr>
+      </table>
+    {% else %}
+      <div class="error">{{ error }}</div>
+    {% endif %}
+
+    <br>
+    <a href="/screenshot_matching" class="back-link">Go Back</a>
+  </div>
+</body>
+</html>
